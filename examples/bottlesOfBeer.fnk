@@ -1,0 +1,30 @@
+:when {
+    |True t| t()
+    |False _|
+}
+
+:while {|c b|
+    when(c()) {
+        b()
+        while(c, b)
+    }
+}
+
+:bottle {| beverage | {
+    | 0 | "No more bottles of " + beverage
+    | 1 | "One bottle of " + beverage
+    | n | n + " bottles of " + beverage
+}}
+
+:bottlesOfBeer {
+   :beers bottle("beer")
+   :i new(99)
+   while {*i > 0} {
+       system.Log(beers(*i) + " on the wall")
+       system.Log("Take one down, pass it around,")
+       system.Log(beers(*i - 1) + " on the wall")
+       i -= 1
+   }
+}
+
+bottlesOfBeer()
