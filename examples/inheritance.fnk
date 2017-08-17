@@ -1,0 +1,19 @@
+
+:newDog {| barkPhrase | {
+    | Bark | system.Log(barkPhrase)
+}}
+
+:newChiwawa {
+    :parent newDog("yip!")
+    :self {
+        | Yap | self.Bark
+        | m | parent(m)
+    }
+}
+
+:aDog newDog("woof!")
+
+:myChiwawa newChiwawa()
+
+aDog.Bark
+myChiwawa.Yap

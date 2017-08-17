@@ -1,0 +1,12 @@
+:newAccount {| balance | {
+   | Balance | *balance
+   | Deposit amount | balance += amount
+   | Withdraw amount | balance -= amount
+   |m| system.SetText("WTF is " + m)
+}}
+
+:anAccount newAccount(new(10))
+
+anAccount.Deposit(5)
+
+system.SetText(anAccount.Balance)
